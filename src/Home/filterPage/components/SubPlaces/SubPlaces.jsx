@@ -24,7 +24,7 @@ const SubPlaces = ({ subcategoryId,activeCategory }) => {
         setSelectedButton(null); // Сбросить выбранную подподкатегорию при изменении активной категории
         setGl(null); // Сбросить данные о выбранной подподкатегории
         setData([]); // Сбросить данные о подподкатегориях
-    }, [activeCategory]);
+    }, [activeCategory,subcategoryId]);
 
     useEffect(() => {
         fetching();
@@ -47,7 +47,7 @@ const SubPlaces = ({ subcategoryId,activeCategory }) => {
             setSelectedButton(parseInt(storedButtonIndex));
         }
     }, []);
-    
+
     const handleButtonClick = useCallback((subcategory, index) => {
         setSelectedButton(index);
         setGl(subcategory);
@@ -55,7 +55,7 @@ const SubPlaces = ({ subcategoryId,activeCategory }) => {
         localStorage.setItem('selectedButton', index); // Сохранить индекс выбранной кнопки в Local Storage
         dispatch(setSelectedSubsubcategory(subcategory));
     }, [dispatch]);
-    
+
 
     const subsubcategories = data?.data?.attributes?.subsubcategories?.data;
 

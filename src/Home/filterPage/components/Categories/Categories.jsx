@@ -114,6 +114,8 @@ const Categories = ({ handleSortState,activeCategory, onCategoryClick, handleFil
         dispatch(setActiveCategory(null))
         dispatch(setSelectedSubsubcategory(null))
         dispatch(setSelectedSubsubcategoryButton(null))
+        localStorage.removeItem('selectedCategory')
+        localStorage.removeItem('selectedSubcategory')
     };
     const clearLocalStorage = () => {
         localStorage.removeItem('selectedCategoryId');
